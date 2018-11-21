@@ -14,8 +14,9 @@ from sklearn.metrics import mean_squared_error
 import numpy as np
 
 def modelrunCH():
-    series = read_csv('laptop_sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True)
+    series = read_csv('./volumeScripts/laptop_sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True)
     series = series['china'].resample('MS').mean()
+    
     #print(series)
     err=[]
     X = series.values
@@ -35,12 +36,33 @@ def modelrunCH():
         #print('predicted=%f, expected=%f' % (yhat, obs))
         err.append(abs(yhat-obs))
     error = mean_squared_error(test, predictions)
-    print('Test MSE: %.3f' % error)
-    print('Bias: ', sum(err)/len(test))
+    # print('Test MSE: %.3f' % error)
+    # print('Bias: ', sum(err)/len(test))
+    
+    testarr=[]
+    for i in range(len(test)):
+        a=[]
+        a.append(i)
+        a.append(test[i])
+        testarr.append(a)
+    
+    predictarr=[]
+    for i in range(len(predictions)):
+        a=[]
+        a.append(i)
+        a.append(predictions[i][0])
+        predictarr.append(a)
+    
+
+
+    
+    
+    
+    
     return {
-        'test':test,
+        'test':testarr,
         
-        'predictions':predictions
+        'predictions':predictarr
     }
 
 

@@ -52,7 +52,7 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                   
+                    
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Trends Analysis <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
@@ -68,7 +68,7 @@
                             
                         </ul>
                     </li>
-
+                    
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-arrows-v"></i> Forcast Volumes <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
@@ -88,7 +88,7 @@
                                 <a href={{url_for('volume',country="Singapore" )}}>Singapore</a>
                             </li>
                             <li>
-                                <a href={{url_for('forecast')}}>Forecast Data</a>
+                                <a href={{url_for( 'forecast' )}}>Forecast Data</a>
                             </li>
                         
                         </ul>
@@ -109,8 +109,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Trend Analysis
+                            Volume Forecasting
                         </h1>
+                       
                     </div>
                 </div>
                 <!-- /.row -->
@@ -118,7 +119,7 @@
                 <!-- Flot Charts -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">{{rel}}</h2>
+                        <h2 class="page-header">{{ country }}</h2>
                         <p class="lead"></p>
                     </div>
                 </div>
@@ -127,7 +128,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-primary">
-                            
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Line Graph</h3>
+                            </div>
                             <div class="panel-body">
                                 <div class="flot-chart">
                                     <div class="flot-chart-content" id="flot-line-chart"></div>
@@ -160,8 +163,8 @@
 
         function plot() {
 
-            var sin = {{ data1 }}
-            var cos = {{ data2 }}
+            var sin = {{ datatest }}
+            var cos = {{ datapred }}
             // for (var i = 0; i < 500; i += 1) {
             //     var jex=Math.random()*5
             //     sin.push([i,jex]);
@@ -181,8 +184,8 @@
                     hoverable: true //IMPORTANT! this is needed for tooltip to work
                 },
                 yaxis: {
-                    min: 0,
-                    max: {{ max }}
+                    min: 25,
+                    max: 140
                 },
                 tooltip: true,
                 tooltipOpts: {
