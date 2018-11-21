@@ -1,96 +1,98 @@
 // Flot Charts sample data for SB Admin template
 
 // Flot Line Chart with Tooltips
-$(document).ready(function() {
-    console.log("document ready");
-    var offset = 0;
-    plot();
 
-    function plot() {
 
-        var sin = [],
-            cos = [];
-        for (var i = 0; i < 500; i += 1) {
-            var jex=Math.random()*5
-            sin.push([i,jex]);
-            cos.push([i, jex]);
-        }
-
-        var options = {
-            series: {
-                lines: {
-                    show: false
-                },
-                points: {
-                    show: true
-                }
-            },
-            grid: {
-                hoverable: true //IMPORTANT! this is needed for tooltip to work
-            },
-            yaxis: {
-                min: 0,
-                max: 6
-            },
-            tooltip: true,
-            tooltipOpts: {
-                content: "'%s' of %x.1 is %y.4",
-                shifts: {
-                    x: -60,
-                    y: 25
-                }
-            }
-        };
-
-        var plotObj = $.plot($("#flot-line-chart"), [{
-                data: sin,
-                label: "Test"
-            }, {
-                data: cos,
-                label: "Predicted"
-            }],
-            options);
-    }
-});
-
-// Flot Pie Chart with Tooltips
-$(function() {
-
-    var data = [{
-        label: "Series 0",
-        data: 1
-    }, {
-        label: "Series 1",
-        data: 3
-    }, {
-        label: "Series 2",
-        data: 9
-    }, {
-        label: "Series 3",
-        data: 20
-    }];
-
-    var plotObj = $.plot($("#flot-pie-chart"), data, {
-        series: {
-            pie: {
-                show: true
-            }
-        },
-        grid: {
-            hoverable: true
-        },
-        tooltip: true,
-        tooltipOpts: {
-            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
-            shifts: {
-                x: 20,
-                y: 0
-            },
-            defaultTheme: false
-        }
-    });
-
-});
+// $(document).ready(function() {
+//     console.log("document ready");
+//     var offset = 0;
+//     plot();
+//
+//     function plot() {
+//
+//         var sin = [],
+//             cos = [];
+//         for (var i = 0; i < 12; i += 1) {
+//             var jex=Math.random()*5
+//             sin.push([i,jex]);
+//             cos.push([i, jex]);
+//         }
+//
+//         var options = {
+//             series: {
+//                 lines: {
+//                     show: true
+//                 },
+//                 points: {
+//                     show: true
+//                 }
+//             },
+//             grid: {
+//                 hoverable: true //IMPORTANT! this is needed for tooltip to work
+//             },
+//             yaxis: {
+//                 min: 0,
+//                 max: 6
+//             },
+//             tooltip: true,
+//             tooltipOpts: {
+//                 content: "'%s' of %x.1 is %y.4",
+//                 shifts: {
+//                     x: -60,
+//                     y: 25
+//                 }
+//             }
+//         };
+//
+//         var plotObj = $.plot($("#flot-line-chart1"), [{
+//                 data: sin,
+//                 label: "Test"
+//             }, {
+//                 data: cos,
+//                 label: "Predicted"
+//             }],
+//             options);
+//     }
+// });
+//
+// // Flot Pie Chart with Tooltips
+// $(function() {
+//
+//     var data = [{
+//         label: "Series 0",
+//         data: 1
+//     }, {
+//         label: "Series 1",
+//         data: 3
+//     }, {
+//         label: "Series 2",
+//         data: 9
+//     }, {
+//         label: "Series 3",
+//         data: 20
+//     }];
+//
+//     var plotObj = $.plot($("#flot-pie-chart"), data, {
+//         series: {
+//             pie: {
+//                 show: true
+//             }
+//         },
+//         grid: {
+//             hoverable: true
+//         },
+//         tooltip: true,
+//         tooltipOpts: {
+//             content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+//             shifts: {
+//                 x: 20,
+//                 y: 0
+//             },
+//             defaultTheme: false
+//         }
+//     });
+//
+// });
 
 // Flot Line Charts - Multiple Axes - With Data
 $(function() {
